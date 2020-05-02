@@ -8,8 +8,12 @@ namespace Step8.Delegates
     {
         static void Main(string[] args)
         {
+            MyEvent evt = new MyEvent();
+            evt.SomeEvent += (n) => Console.WriteLine("Event recived. value is " + n);
+            evt.OnSomeEvent(10);
+            evt.OnSomeEvent(5);
             // SortSample();
-            MultiCast();
+           // MultiCast();
             Console.ReadKey();
         }
 
@@ -17,7 +21,6 @@ namespace Step8.Delegates
         {
             OperationDelegate.MethodPointer pointer = OperationDelegate.Sum;
             pointer += OperationDelegate.Substract;
-
             pointer(8, 3);
         }
 
